@@ -3,10 +3,11 @@ package se.kth.csc.iprog.dinnerplanner.model;
 import java.util.HashSet;
 import java.util.Set;
 
-public class DinnerModel {
-	
+public class DinnerModel implements IDinnerModel {
 
 	Set<Dish> dishes = new HashSet<Dish>();
+	Set<Dish> selectedDishes = new HashSet<Dish>();
+	int numberOfguests;
 	
 	/**
 	 * TODO: For Lab2 you need to implement the IDinnerModel interface.
@@ -62,7 +63,7 @@ public class DinnerModel {
 	}
 	
 	/**
-	 * Returns the set of dishes of specific type. (1 = starter, 2 = main, 3 = desert).
+	 * Returns all of the dishes (from menu, that the user can select from)
 	 */
 	public Set<Dish> getDishes(){
 		return dishes;
@@ -93,8 +94,80 @@ public class DinnerModel {
 			}
 		}
 		return result;
+	} 
+	
+	//return number of guests
+	@Override
+	public int getNumberOfGuests() {		
+		return numberOfguests;
+	}
+
+	//set number of guests
+	@Override
+	public void setNumberOfGuests(int numberOfGuests) {
+		numberOfguests = numberOfGuests;		
+	}
+
+	/**
+	 * Returns the dish that is on the menu for selected type (1 = starter, 2 = main, 3 = desert).
+	 */
+	@Override
+	public Dish getSelectedDish(int type) {
+		//look through the set and find the dish with the selected type
+		for(Dish d : selectedDishes){
+			if(d.getType() == type){
+				return d;
+			}
+		}
+		//error could not find a dish with the selected type
+		return null;
+	}
+
+	/**
+	 * Returns all the dishes on the menu (that the user have selected).
+	 */
+	@Override
+	public Set<Dish> getFullMenu() {
+		return selectedDishes;
+	}
+
+	/**
+	 * Returns all ingredients for all the dishes on the menu.
+	 */
+	@Override
+	public Set<Ingredient> getAllIngredients() {
+		Set<Ingredient> all_ingrediens = new HashSet<Ingredient>();
+		for(Dish d : selectedDishes){
+			Set<Ingredient> ingredient = d.getIngredients();
+			for(Ingredient i : ingredient){
+				all_ingrediens.add(i);
+			}
+		}
+		return all_ingrediens;
+	}
+
+	/**
+	 * Returns the total price of the menu (all the ingredients multiplied by number of guests).
+	 */
+	@Override
+	public float getTotalMenuPrice() {
+		double total = 0;
+		for(Dish d : selectedDishes){
+			Set<Ingredient> ingredient = d.getIngredients();
+			for(Ingredient i : ingredient){
+				total = total + (i.getPrice() * numberOfguests);
+			}
+		}
+		return (float) total;
 	}
 	
-	
+	//add dish from menu
+	public void addDish(String name){
+		for(Dish d : dishes){
+			if(d.getName().equals(name)){
+				selectedDishes.add(d);
+			}
+		}
+	}
 
 }
