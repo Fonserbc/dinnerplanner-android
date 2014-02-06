@@ -27,7 +27,7 @@ public class MainActivity extends Activity {
         (new Button.OnClickListener(){
 			@Override
 			public void onClick(View arg0) {
-				Intent intent = new Intent(getBaseContext(),MenuActivity.class);
+				Intent intent = new Intent(getBaseContext(),ChooseActivity.class);
 				startActivity(intent);
 			}
         }
