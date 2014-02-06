@@ -9,5 +9,11 @@
     <string name="button_start">Start</string>
     <string name="title_activity_menu">MenuActivity</string>
     <string name="title_activity_choose">ChooseActivity</string>
+    <string name="menu_participants">Participants</string>
+    <string name="default_participants">1</string>
+    <string name="menu_cost">Total Cost: </string>
+    <string name="menu_choose">Choose Menu</string>
+    <string name="menu_create">Create</string>
+    <string name="default_price">0 SEK</string>
 
 </resources>

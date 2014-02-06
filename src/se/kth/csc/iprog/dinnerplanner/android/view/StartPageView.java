@@ -7,7 +7,7 @@ import android.widget.TextView;
 
 public class StartPageView {
 
-	View view;
+	public View view;
 
 	public StartPageView(View view) {
 
