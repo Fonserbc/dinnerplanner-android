@@ -3,6 +3,7 @@ package se.kth.csc.iprog.dinnerplanner.android.view;
 import se.kth.csc.iprog.dinnerplanner.android.R;
 import se.kth.csc.iprog.dinnerplanner.model.DinnerModel;
 import android.view.View;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 public class ChooseView {
@@ -18,6 +19,8 @@ public class ChooseView {
 
 		//TextView start = (TextView) view.findViewById(R.id.start_page);
 		//example.setText("Hello world");
+		LinearLayout dessert = (LinearLayout) view.findViewById(R.id.starter_list);
+		
 
 		// Setup the rest of the view layout
 		

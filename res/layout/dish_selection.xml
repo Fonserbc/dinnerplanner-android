@@ -24,7 +24,7 @@
             android:layout_height="wrap_content" >
 
             <LinearLayout
-                android:id = "@id/starter"
+                android:id = "@+id/starter_list"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:orientation="horizontal" >
@@ -52,7 +52,7 @@
             android:layout_height="wrap_content" >
 
             <LinearLayout
-                android:id = "@id/main"
+                android:id = "@+id/main_list"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:orientation="horizontal" >
@@ -80,7 +80,7 @@
             android:layout_height="wrap_content" >
 
             <LinearLayout
-                android:id= "@id/dessert"
+                android:id= "@+id/dessert_list"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:orientation="horizontal" >
