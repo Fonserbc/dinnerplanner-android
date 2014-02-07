@@ -1,5 +1,7 @@
 package se.kth.csc.iprog.dinnerplanner.android;
 
+import se.kth.csc.iprog.dinnerplanner.android.view.ChooseView;
+import se.kth.csc.iprog.dinnerplanner.android.view.MenuView;
 import android.os.Bundle;
 import android.app.Activity;
 import android.view.Menu;
@@ -10,6 +12,8 @@ public class MenuActivity extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_menu);
+		
+		MenuView menuView = new MenuView(findViewById(R.layout.activity_menu));
 	}
 
 	@Override

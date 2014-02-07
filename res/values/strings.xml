@@ -18,5 +18,6 @@
     <string name="starter">Starter</string>
     <string name="maincourse">Main Course</string>
     <string name="dessert">Dessert</string>
+    <string name="dish_name_placeholder">Super Dish</string>
 
 </resources>
