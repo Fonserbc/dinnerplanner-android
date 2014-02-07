@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@layout/ingredient"
+    android:layout_width="fill_parent"
+    android:layout_height="match_parent"
+    android:orientation="horizontal" >
+
+    <TextView
+        android:id="@+id/ingredient_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="left|center_vertical"
+        android:text="@string/default_ingredient_name" />
+
+    <TextView
+        android:id="@+id/ingredient_quantity"
+        android:layout_width="0dip"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical|center_horizontal|fill_horizontal"
+        android:layout_weight="1"
+        android:gravity="center_horizontal"
+        android:text="@string/default_ingredient_quantity" />
+
+    <TextView
+        android:id="@+id/ingredient_price"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="right|center_vertical"
+        android:text="@string/default_ingredient_price" />
+
+</LinearLayout>
