@@ -19,5 +19,8 @@
     <string name="maincourse">Main Course</string>
     <string name="dessert">Dessert</string>
     <string name="dish_name_placeholder">Super Dish</string>
+    <string name="starter_name">Toast</string>
+    <string name="main_name">Chicken</string>
+    <string name="dessert_name">Ice Cream</string>
 
 </resources>
