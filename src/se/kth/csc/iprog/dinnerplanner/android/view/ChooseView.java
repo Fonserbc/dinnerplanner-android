@@ -8,11 +8,13 @@ import android.widget.TextView;
 public class ChooseView {
 
 	public View view;
+	private DinnerModel model;
 
-	public ChooseView(View view) {
+	public ChooseView(View view, DinnerModel model) {
 
 		// store in the class the reference to the Android View
 		this.view = view;
+		this.model = model;
 
 		//TextView start = (TextView) view.findViewById(R.id.start_page);
 		//example.setText("Hello world");

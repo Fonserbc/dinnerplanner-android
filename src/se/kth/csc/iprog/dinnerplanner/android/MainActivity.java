@@ -9,18 +9,22 @@ import android.app.Activity;
 import android.content.Intent;
 
 public class MainActivity extends Activity {
+	
+	private DinnerModel model;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         // Default call to load previous state
     	super.onCreate(savedInstanceState);
     	
+    	model = ((DinnerPlannerApplication) this.getApplication()).getModel();
+    	
     	// Set the view for the main activity screen
     	// it must come before any call to findViewById method
         setContentView(R.layout.activity_main);
         
     	// Creating the view class instance
-        StartPageView mainView = new StartPageView(findViewById(R.layout.start_page));
+        StartPageView mainView = new StartPageView(findViewById(R.layout.start_page), model);
         
         Button startButton = (Button) mainView.view.findViewById(R.id.button_start);
         startButton.setOnClickListener
