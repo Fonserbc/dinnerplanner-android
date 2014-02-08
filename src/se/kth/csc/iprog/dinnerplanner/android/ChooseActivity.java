@@ -1,7 +1,6 @@
 package se.kth.csc.iprog.dinnerplanner.android;
 
 import se.kth.csc.iprog.dinnerplanner.android.view.ChooseView;
-import se.kth.csc.iprog.dinnerplanner.android.view.StartPageView;
 import se.kth.csc.iprog.dinnerplanner.model.DinnerModel;
 import android.os.Bundle;
 import android.app.Activity;
@@ -24,7 +23,7 @@ public class ChooseActivity extends Activity {
 		
 		ChooseView chooseView = new ChooseView(findViewById(R.layout.activity_choose), model);
 		
-		/*Button createButton = (Button) chooseView.view.findViewById(R.id.menu_create);
+		Button createButton = (Button) findViewById(R.id.menu_create);
 	    createButton.setOnClickListener
 	    (new Button.OnClickListener(){
 			@Override
@@ -33,7 +32,7 @@ public class ChooseActivity extends Activity {
 				startActivity(intent);
 			}
 	    }
-	    );*/
+	    );
 	}
 
 	@Override
