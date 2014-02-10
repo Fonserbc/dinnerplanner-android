@@ -26,12 +26,14 @@ public class MenuView {
 	
 	public class IngredientsArrayAdapter extends ArrayAdapter<Ingredient> {
 		private Context context;
-		private ArrayList<Ingredient> ingredients;		
+		private ArrayList<Ingredient> ingredients;
+		private int numberOfGuests;
 
-		public IngredientsArrayAdapter(Context context, int resource, ArrayList<Ingredient> objects) {
+		public IngredientsArrayAdapter(Context context, int resource, ArrayList<Ingredient> objects, int numberOfGuests) {
 			super(context, resource, objects);
 			this.context = context;
 			this.ingredients = objects;
+			this.numberOfGuests = numberOfGuests;
 		}
 		
 		@Override
@@ -46,8 +48,8 @@ public class MenuView {
 			
 			Ingredient i = ingredients.get(pos);
 			name.setText(i.getName());
-			quantity.setText(Double.toString(i.getQuantity()) + i.getUnit());
-			price.setText(Double.toString(i.getPrice()) + " SEK");
+			quantity.setText(String.format("%.1f", i.getQuantity()*numberOfGuests) + " " + i.getUnit());
+			price.setText(Double.toString(i.getPrice()*numberOfGuests) + " SEK");
 			
 			return rowView;
 		}
@@ -68,9 +70,9 @@ public class MenuView {
 		this.inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 		
 		ingredientsListView = (ListView) inflater.inflate(R.layout.ingredients_list, null);
-
-		//TextView start = (TextView) view.findViewById(R.id.start_page);
-		//example.setText("Hello world");
+		TextView totalCost = (TextView) view.findViewById(R.id.text_menu_price);
+		
+		totalCost.setText(Float.toString(model.getTotalMenuPrice()) + " SEK");
 		
 		fillIngredientsList();
 
@@ -81,7 +83,7 @@ public class MenuView {
 	private void fillIngredientsList() {		
 		ArrayList<Ingredient> ingredients = retrieveIngredients(model.getFullMenu());
 		
-		IngredientsArrayAdapter adapter = new IngredientsArrayAdapter(context, R.layout.ingredients_list, ingredients);
+		IngredientsArrayAdapter adapter = new IngredientsArrayAdapter(context, R.layout.ingredients_list, ingredients, model.getNumberOfGuests());
 		ingredientsListView.setAdapter(adapter);
 	}
 
@@ -106,7 +108,8 @@ public class MenuView {
 			}
 			else {
 				ingNames.put(i.getName(), ingredients.size());
-				ingredients.add(i);
+				Ingredient newI = new Ingredient(i);
+				ingredients.add(newI);
 			}
 		}
 		

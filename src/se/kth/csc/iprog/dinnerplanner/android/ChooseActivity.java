@@ -9,6 +9,7 @@ import android.content.Intent;
 import android.view.Menu;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 
 public class ChooseActivity extends Activity {
 
@@ -30,6 +31,8 @@ public class ChooseActivity extends Activity {
 	    (new Button.OnClickListener(){
 			@Override
 			public void onClick(View arg0) {
+				storeDinnerParticipants();
+				
 				Intent intent = new Intent(getBaseContext(),MenuActivity.class);
 				startActivity(intent);
 			}
@@ -42,5 +45,11 @@ public class ChooseActivity extends Activity {
 		// Inflate the menu; this adds items to the action bar if it is present.
 		getMenuInflater().inflate(R.menu.choose, menu);
 		return true;
+	}
+	
+	public void storeDinnerParticipants() {
+		EditText numberView = (EditText) findViewById(R.id.number_participants);
+		
+		model.setNumberOfGuests(Integer.parseInt(numberView.getText().toString()));
 	}
 }

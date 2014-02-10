@@ -9,9 +9,17 @@ public class Ingredient {
 	
 	public Ingredient(String name,double quantity, String unit, double price){
 		this.name = name;
-		this.quantity=quantity;
+		this.quantity = quantity;
 		this.unit = unit;
 		this.price = price;
+	}
+	
+
+	public Ingredient(Ingredient i) {
+		this.name = new String(i.name);
+		this.quantity = i.quantity;
+		this.unit = new String(i.unit);
+		this.price = i.price;
 	}
 	
 	public String getName() {
