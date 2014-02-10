@@ -28,5 +28,8 @@
     <string name="back">Back</string>
     <string name="instructions">Instructions</string>
     <string name="ingredients">Ingredients</string>
+    <string name="dish_name">Name</string>
+    <string name="dish_type">Type</string>
+    <string name="dish_instruction">instruction</string>
 
 </resources>

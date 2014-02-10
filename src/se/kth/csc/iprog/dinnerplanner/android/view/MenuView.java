@@ -11,44 +11,84 @@ import se.kth.csc.iprog.dinnerplanner.android.R;
 import se.kth.csc.iprog.dinnerplanner.model.DinnerModel;
 import se.kth.csc.iprog.dinnerplanner.model.Dish;
 import se.kth.csc.iprog.dinnerplanner.model.Ingredient;
+import android.content.Context;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 public class MenuView {
+	
+	private Context context;
+	
+	public class IngredientsArrayAdapter extends ArrayAdapter<Ingredient> {
+		private Context context;
+		private ArrayList<Ingredient> ingredients;		
+
+		public IngredientsArrayAdapter(Context context, int resource, ArrayList<Ingredient> objects) {
+			super(context, resource, objects);
+			this.context = context;
+			this.ingredients = objects;
+		}
+		
+		@Override
+		public View getView(int pos, View convertView, ViewGroup parent) {
+			LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+			
+			View rowView = inflater.inflate(R.layout.ingredient, parent, false);
+			
+			TextView name = (TextView) rowView.findViewById(R.id.ingredient_name);
+			TextView quantity = (TextView) rowView.findViewById(R.id.ingredient_quantity);
+			TextView price = (TextView) rowView.findViewById(R.id.ingredient_price);
+			
+			Ingredient i = ingredients.get(pos);
+			name.setText(i.getName());
+			quantity.setText(Double.toString(i.getQuantity()) + i.getUnit());
+			price.setText(Double.toString(i.getPrice()) + " SEK");
+			
+			return rowView;
+		}
+	}
 
 	public View view;
-	protected DinnerModel model;
+	DinnerModel model;
+	LayoutInflater inflater;
+	
+	private ListView ingredientsListView;
 
-	public MenuView(View view, DinnerModel model) {
+	public MenuView(Context context, View view, DinnerModel model) {
 
 		// store in the class the reference to the Android View
+		this.context = context;
 		this.view = view;
 		this.model = model;
+		this.inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+		
+		ingredientsListView = (ListView) inflater.inflate(R.layout.ingredients_list, null);
 
 		//TextView start = (TextView) view.findViewById(R.id.start_page);
 		//example.setText("Hello world");
 		
-		fillInstructionsList();
+		fillIngredientsList();
 
 		// Setup the rest of the view layout
-		
+		((RelativeLayout) view.findViewById(R.id.info_scroll)).addView(ingredientsListView);
 	}
 
-	private void fillInstructionsList() {
-		ListView list = (ListView) view.findViewById(R.layout.ingredients_list);
+	private void fillIngredientsList() {		
+		ArrayList<Ingredient> ingredients = retrieveIngredients(model.getFullMenu());
 		
-		List<Ingredient> ingredients = retrieveIngredients(model.getFullMenu());
-		
-		for (Ingredient i : ingredients) {
-			
-		}
+		IngredientsArrayAdapter adapter = new IngredientsArrayAdapter(context, R.layout.ingredients_list, ingredients);
+		ingredientsListView.setAdapter(adapter);
 	}
 
 	/**
 	 * Returns all ingredients of the current menu, one of each type
 	 */
-	private List<Ingredient> retrieveIngredients(Set<Dish> dishes) {
+	private ArrayList<Ingredient> retrieveIngredients(Set<Dish> dishes) {
 		ArrayList<Ingredient> ingredients = new ArrayList<Ingredient>();
 		Map<String,Integer> ingNames = new HashMap<String,Integer>();
 		
@@ -56,12 +96,17 @@ public class MenuView {
 		
 		for (Ingredient i : ing) {
 			if (ingNames.containsKey(i.getName())) { // If ingredient is in set
-				Ingredient current = ingredients.get(ingNames.get(i.getName()));
+				int it = ingNames.get(i.getName());
+				Ingredient current = ingredients.get(it);
+				ingredients.remove(it);
 				
 				current.setQuantity(current.getQuantity() + i.getQuantity());
+				
+				ingredients.add(current);				
 			}
 			else {
-				
+				ingNames.put(i.getName(), ingredients.size());
+				ingredients.add(i);
 			}
 		}
 		
