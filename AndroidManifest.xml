@@ -9,13 +9,13 @@
         android:targetSdkVersion="18" />
 
     <application
-        android:name="se.kth.csc.iprog.dinnerplanner.android.DinnerPlannerApplication"
+        android:name="DinnerPlannerApplication"
         android:allowBackup="true"
         android:icon="@drawable/ic_launcher"
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
         <activity
-            android:name="MainActivity"
+            android:name=".MainActivity"
             android:label="@string/app_name" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -24,12 +24,12 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="MenuActivity"
-            android:label="@string/title_activity_menu" >
+            android:name=".MenuActivity"
+            android:label="@string/app_name" >
         </activity>
         <activity
-            android:name="ChooseActivity"
-            android:label="@string/title_activity_choose" >
+            android:name=".ChooseActivity"
+            android:label="@string/app_name" >
         </activity>
     </application>
 

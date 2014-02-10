@@ -19,5 +19,14 @@
     <string name="maincourse">Main Course</string>
     <string name="dessert">Dessert</string>
     <string name="dish_name_placeholder">Super Dish</string>
+    <string name="starter_name">Toast</string>
+    <string name="main_name">Chicken</string>
+    <string name="dessert_name">Ice Cream</string>
+    <string name="default_ingredient_name">Ingredient</string>
+    <string name="default_ingredient_quantity">100 g</string>
+    <string name="default_ingredient_price">10 SEK</string>
+    <string name="back">Back</string>
+    <string name="instructions">Instructions</string>
+    <string name="ingredients">Ingredients</string>
 
 </resources>
