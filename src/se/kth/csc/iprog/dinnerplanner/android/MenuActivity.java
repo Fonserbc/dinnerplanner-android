@@ -11,6 +11,8 @@ public class MenuActivity extends Activity {
 
 	private DinnerModel model;
 	
+	private MenuView menuView;
+	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -19,7 +21,7 @@ public class MenuActivity extends Activity {
 		
 		setContentView(R.layout.activity_menu);
 		
-		MenuView menuView = new MenuView(findViewById(R.layout.activity_menu), model);
+		menuView = new MenuView(getBaseContext(), findViewById(R.layout.activity_menu), model);
 	}
 
 	@Override
