@@ -24,8 +24,9 @@ public class ChooseActivity extends Activity {
 		setContentView(R.layout.activity_choose);
 		
 
+
 		//ChooseView chooseView = new ChooseView(findViewById(R.layout.activity_choose), model, this);
-		
+
 		Button createButton = (Button) findViewById(R.id.menu_create);
 	    createButton.setOnClickListener
 	    (new Button.OnClickListener(){
