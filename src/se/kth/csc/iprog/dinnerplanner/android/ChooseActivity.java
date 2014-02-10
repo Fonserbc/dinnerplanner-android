@@ -1,5 +1,6 @@
 package se.kth.csc.iprog.dinnerplanner.android;
 
+
 import se.kth.csc.iprog.dinnerplanner.android.view.ChooseView;
 import se.kth.csc.iprog.dinnerplanner.android.view.StartPageView;
 import se.kth.csc.iprog.dinnerplanner.model.DinnerModel;
@@ -19,7 +20,7 @@ public class ChooseActivity extends Activity {
 		
 		setContentView(R.layout.activity_choose);
 		
-		ChooseView chooseView = new ChooseView(findViewById(R.layout.activity_choose), model);
+		ChooseView chooseView = new ChooseView(findViewById(R.layout.activity_choose), model, this);
 	}
 
 	@Override
