@@ -58,6 +58,7 @@
     		    android:id="@+id/ingredients"
     		    android:layout_width="@dimen/button_size"
     		    android:layout_height="@dimen/button_size"
+    		    android:background="@android:color/transparent"
     		    android:contentDescription="@string/ingredients"
     		    android:scaleType="fitXY"
     		    android:src="@drawable/ingredient" />
@@ -95,6 +96,7 @@
     			        android:id="@+id/starterdish"
     			        android:layout_width="@dimen/button_size"
     			        android:layout_height="@dimen/button_size"
+    			        android:background="@android:color/transparent"
     			        android:contentDescription="@string/starter"
     			        android:scaleType="centerCrop"
     			        android:src="@drawable/toast" />
@@ -118,6 +120,7 @@
     			        android:layout_width="@dimen/button_size"
     			        android:layout_height="@dimen/button_size"
     			        android:layout_gravity="center_horizontal"
+    			        android:background="@android:color/transparent"
     			        android:contentDescription="@string/maincourse"
     			        android:scaleType="centerCrop"
     			        android:src="@drawable/meatballs" />
@@ -141,6 +144,7 @@
     			        android:layout_width="@dimen/button_size"
     			        android:layout_height="@dimen/button_size"
     			        android:layout_gravity="center_horizontal"
+    			        android:background="@android:color/transparent"
     			        android:contentDescription="@string/dessert"
     			        android:scaleType="centerCrop"
     			        android:src="@drawable/icecream" />

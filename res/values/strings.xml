@@ -32,5 +32,6 @@
     <string name="dish_type"></string>
     <string name="dish_instruction"></string>
     <string name="default_cost_person">(20 SEK / Person)</string>
+    <string name="dish_choose">Choose</string>
 
 </resources>

@@ -3,6 +3,8 @@ package se.kth.csc.iprog.dinnerplanner.model;
 import java.util.HashSet;
 import java.util.Set;
 
+import android.util.Log;
+
 public class DinnerModel implements IDinnerModel {
 
 	Set<Dish> dishes = new HashSet<Dish>();
@@ -169,6 +171,18 @@ public class DinnerModel implements IDinnerModel {
 			for(Ingredient i : ingredient){
 				total = total + (i.getPrice() * numberOfguests);
 			}
+		}
+		return (float) total;
+	}
+	
+	/**
+	 * Returns the total price of the dish (all the ingredients multiplied by number of guests).
+	 */
+	public float getDishPrice(Dish d) {
+		double total = 0;
+		Set<Ingredient> ingredient = d.getIngredients();
+		for(Ingredient i : ingredient){
+			total = total + (i.getPrice() * numberOfguests);
 		}
 		return (float) total;
 	}
