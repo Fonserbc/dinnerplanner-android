@@ -8,6 +8,7 @@ import android.app.Activity;
 import android.view.Menu;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
 
 public class MenuActivity extends Activity {
 
@@ -35,36 +36,36 @@ public class MenuActivity extends Activity {
 			  }
 		});
 		
-		Button ingredientsButton = (Button)menuView.view.findViewById(R.id.ingredients);
+		ImageButton ingredientsButton = (ImageButton)menuView.view.findViewById(R.id.ingredients);
 		ingredientsButton.setOnClickListener
-		(new Button.OnClickListener() {
+		(new ImageButton.OnClickListener() {
 			  @Override
 			  public void onClick(View v) {
 				  menuView.changeView(0);
 			  }
 		});
 		
-		Button starterButton = (Button)menuView.view.findViewById(R.id.starterdish);
+		ImageButton starterButton = (ImageButton)menuView.view.findViewById(R.id.starterdish);
 		starterButton.setOnClickListener
-		(new Button.OnClickListener() {
+		(new ImageButton.OnClickListener() {
 			  @Override
 			  public void onClick(View v) {
 				  menuView.changeView(1);
 			  }
 		});
 		
-		Button mainButton = (Button)menuView.view.findViewById(R.id.maindish);
+		ImageButton mainButton = (ImageButton)menuView.view.findViewById(R.id.maindish);
 		mainButton.setOnClickListener
-		(new Button.OnClickListener() {
+		(new ImageButton.OnClickListener() {
 			  @Override
 			  public void onClick(View v) {
 				  menuView.changeView(2);
 			  }
 		});
 		
-		Button dessertButton = (Button)menuView.view.findViewById(R.id.dessertdish);
+		ImageButton dessertButton = (ImageButton)menuView.view.findViewById(R.id.dessertdish);
 		dessertButton.setOnClickListener
-		(new Button.OnClickListener() {
+		(new ImageButton.OnClickListener() {
 			  @Override
 			  public void onClick(View v) {
 				  menuView.changeView(2);
