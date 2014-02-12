@@ -59,8 +59,7 @@
     		    android:layout_width="@dimen/button_size"
     		    android:layout_height="@dimen/button_size"
     		    android:contentDescription="@string/ingredients"
-    		    android:scaleType="fitXY"
-    		    android:src="@drawable/ingredient" />
+    		    android:src="@drawable/dish_placeholder" />
 
     		<TextView
     		    android:id="@+id/text_ingredient"
@@ -95,9 +94,7 @@
     			        android:id="@+id/starterdish"
     			        android:layout_width="@dimen/button_size"
     			        android:layout_height="@dimen/button_size"
-    			        android:adjustViewBounds="true"
     			        android:contentDescription="@string/starter"
-    			        android:scaleType="centerCrop"
     			        android:src="@drawable/toast" />
 
     			    <TextView
@@ -120,7 +117,6 @@
     			        android:layout_height="@dimen/button_size"
     			        android:layout_gravity="center_horizontal"
     			        android:contentDescription="@string/maincourse"
-    			        android:scaleType="centerCrop"
     			        android:src="@drawable/meatballs" />
 
     			    <TextView
@@ -143,7 +139,6 @@
     			        android:layout_height="@dimen/button_size"
     			        android:layout_gravity="center_horizontal"
     			        android:contentDescription="@string/dessert"
-    			        android:scaleType="centerCrop"
     			        android:src="@drawable/icecream" />
 
     			    <TextView
