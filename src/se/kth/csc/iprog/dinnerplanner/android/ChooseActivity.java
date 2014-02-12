@@ -63,6 +63,7 @@ public class ChooseActivity extends Activity {
 			public boolean onEditorAction(TextView arg0, int arg1, KeyEvent arg2) {
 				if(arg1 == EditorInfo.IME_ACTION_DONE) {
 					storeDinnerParticipants();
+					//this should be in view in the future
 					TextView totalCost = (TextView) findViewById(R.id.text_cost_amount);
 					totalCost.setText(Float.toString(model.getTotalMenuPrice()) + " SEK");
 					return false;

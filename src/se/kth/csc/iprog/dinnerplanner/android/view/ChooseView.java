@@ -43,8 +43,8 @@ public class ChooseView {
 		
 		getDishList();
 		
-		TextView totalCost = (TextView) view.findViewById(R.id.text_cost_amount);
-		totalCost.setText(Float.toString(model.getTotalMenuPrice()) + " SEK");
+		//TextView totalCost = (TextView) view.findViewById(R.id.text_cost_amount);
+		//totalCost.setText(Float.toString(model.getTotalMenuPrice()) + " SEK");
 		
 	}
 	
