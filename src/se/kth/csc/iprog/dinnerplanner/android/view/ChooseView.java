@@ -35,7 +35,14 @@ public class ChooseView {
 		this.model = model;
 		this.inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 		
+		
+		
 		getDishList();
+		
+		Log.d("total price", Float.toString(model.getTotalMenuPrice()));
+		TextView totalCost = (TextView) view.findViewById(R.id.text_cost_amount);
+		totalCost.setText(Float.toString(model.getTotalMenuPrice()) + " SEK");
+		
 		
 
 		//View dishPreview = inflater.inflate(R.layout.dish_preview, null);
