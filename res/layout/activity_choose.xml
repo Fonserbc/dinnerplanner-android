@@ -1,6 +1,6 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@layout/activity_menu"
+    android:id="@layout/activity_choose"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
@@ -75,10 +75,97 @@
         android:layout_height="0dip"
         android:layout_weight="1" >
         
-        <include
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        layout="@layout/dish_selection" />
+        <LinearLayout
+		    android:id="@layout/dish_selection"
+		    android:layout_width="match_parent"
+		    android:layout_height="wrap_content"
+		    android:orientation="vertical" >
+		
+		    <LinearLayout
+		        android:id="@+id/layout_starter"
+		        android:layout_width="match_parent"
+		        android:layout_height="wrap_content"
+		        android:orientation="vertical" >
+		
+		        <TextView
+		            android:id="@+id/starter_title"
+		            android:layout_width="wrap_content"
+		            android:layout_height="wrap_content"
+		            android:text="@string/starter"
+		            android:textAppearance="?android:attr/textAppearanceMedium" />
+		
+		        <HorizontalScrollView
+		            android:id="@+id/starter_slider"
+		            android:layout_width="fill_parent"
+		            android:layout_height="wrap_content" >
+		
+		            <LinearLayout
+		                android:id = "@+id/starter_list"
+		                android:layout_width="match_parent"
+		                android:layout_height="match_parent"
+		                android:orientation="horizontal" >
+		            </LinearLayout>
+		        </HorizontalScrollView>
+		
+		    </LinearLayout>
+		    
+		    <LinearLayout
+		        android:id="@+id/layout_maincourse"
+		        android:layout_width="match_parent"
+		        android:layout_height="wrap_content"
+		        android:orientation="vertical" >
+		
+		        <TextView
+		            android:id="@+id/maincourse_title"
+		            android:layout_width="wrap_content"
+		            android:layout_height="wrap_content"
+		            android:text="@string/maincourse"
+		            android:textAppearance="?android:attr/textAppearanceMedium" />
+		
+		        <HorizontalScrollView
+		            android:id="@+id/maincoursemaincoursemaincourse_slider"
+		            android:layout_width="fill_parent"
+		            android:layout_height="wrap_content" >
+		
+		            <LinearLayout
+		                android:id = "@+id/main_list"
+		                android:layout_width="match_parent"
+		                android:layout_height="match_parent"
+		                android:orientation="horizontal" >
+		            </LinearLayout>
+		        </HorizontalScrollView>
+		
+		    </LinearLayout>
+		    
+		    <LinearLayout
+		        android:id="@+id/layout_dessert"
+		        android:layout_width="match_parent"
+		        android:layout_height="wrap_content"
+		        android:orientation="vertical" >
+		
+		        <TextView
+		            android:id="@+id/dessert_title"
+		            android:layout_width="wrap_content"
+		            android:layout_height="wrap_content"
+		            android:text="@string/dessert"
+		            android:textAppearance="?android:attr/textAppearanceMedium" />
+		
+		        <HorizontalScrollView
+		            android:id="@+id/dessert_slider"
+		            android:layout_width="fill_parent"
+		            android:layout_height="wrap_content" >
+		
+		            <LinearLayout
+		                android:id= "@+id/dessert_list"
+		                android:layout_width="match_parent"
+		                android:layout_height="match_parent"
+		                android:orientation="horizontal" >
+		            </LinearLayout>
+		        </HorizontalScrollView>
+		
+		    </LinearLayout>
+		
+		</LinearLayout>
         
     </ScrollView>
 
