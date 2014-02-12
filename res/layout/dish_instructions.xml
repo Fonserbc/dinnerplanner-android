@@ -10,22 +10,19 @@
     	android:layout_width="wrap_content"
     	android:layout_height="wrap_content"
     	android:textStyle="bold"
-        android:text="@string/dish_type"
-        android:textAppearance="?android:attr/textAppearanceLarge" />
+        android:text="@string/dish_type" />
     
     <TextView
     	android:id="@+id/text_name_of_dish"
     	android:layout_width="wrap_content"
     	android:layout_height="wrap_content"
     	android:textStyle="italic"
-        android:text="@string/dish_name"
-        android:textAppearance="?android:attr/textAppearanceLarge" />
+        android:text="@string/dish_name" />
     
     <TextView
     	android:id="@+id/text_dish_instruction"
     	android:layout_width="wrap_content"
     	android:layout_height="wrap_content"
-        android:text="@string/dish_instruction"
-        android:textAppearance="?android:attr/textAppearanceLarge" />
+        android:text="@string/dish_instruction" />
     
 </LinearLayout>
