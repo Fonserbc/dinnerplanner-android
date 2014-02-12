@@ -14,6 +14,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.RelativeLayout;
@@ -56,6 +57,10 @@ public class ChooseView {
 			View dishPreview = inflater.inflate(R.layout.dish_preview, null);
 			TextView dishName = (TextView) dishPreview.findViewById(R.id.dish_name);
 			dishName.setText(dish.getName());
+			
+			ImageView dishImg = (ImageView) dishPreview.findViewById(R.id.dish_photo);
+			Log.v("hej", R.drawable.toast+" and get "+context.getResources().getIdentifier(dish.getImage(), "drawable", context.getPackageName()));
+			dishImg.setImageResource(context.getResources().getIdentifier(dish.getImage(), "drawable", context.getPackageName()));
 		
 			starterList.addView(dishPreview);
 		}
