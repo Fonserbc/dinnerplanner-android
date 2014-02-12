@@ -82,6 +82,10 @@ public class MenuView {
 		// Setup the rest of the view layout
 		((RelativeLayout) view.findViewById(R.id.info_scroll)).addView(ingredientsListView);
 	}
+	
+	public void changeView(int i){
+		
+	}
 
 	private void fillIngredientsList() {		
 		ArrayList<Ingredient> ingredients = retrieveIngredients(model.getFullMenu());
