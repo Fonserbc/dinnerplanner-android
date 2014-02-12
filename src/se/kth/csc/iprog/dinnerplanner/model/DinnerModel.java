@@ -44,8 +44,34 @@ public class DinnerModel implements IDinnerModel {
 		dish2.addIngredient(new Ingredient("seasoned bread crumbs",115,"g",4));
 		dishes.add(dish2);
 		
+		Dish dish3 = new Dish("Ice creame",Dish.DESERT,"icecream","Mix all ingredients in a bowl and put it in the freezer.");
+		dish1.addIngredient(new Ingredient("eggs",0.5,"",1));
+		dish1.addIngredient(new Ingredient("cream",60,"ml",3));
+		dish1.addIngredient(new Ingredient("chocolate",25,"g",5));
+		dish1.addIngredient(new Ingredient("sugar",6,"ml",1));
+		dishes.add(dish3);
+		
+		Dish dish4 = new Dish("Baked brie",Dish.STARTER,"bakedbrie","Put the nuts on the brie and pour honey on top. Bake it in the oven for 7 minutes.");
+		dish1.addIngredient(new Ingredient("brie",0.2,"",10));
+		dish1.addIngredient(new Ingredient("nuts",15,"g",2));
+		dish1.addIngredient(new Ingredient("honey",10,"ml",3));
+		dishes.add(dish4);
+		
+		Dish dish5 = new Dish("Fried halloumi",Dish.STARTER,"halloumi","Slice the halloumi and fry it in a pan.");
+		dish1.addIngredient(new Ingredient("halloumi cheese",0.25,"",5));
+		dish1.addIngredient(new Ingredient("oil",0.5,"tbs",1));
+		dishes.add(dish5);
+		
+		Dish dish6 = new Dish("Green Pea Soup",Dish.STARTER,"green","Put everything in at pot and cook for five minutes. Use a blender to make it into a pure.");
+		dish1.addIngredient(new Ingredient("Frozen peas",100,"g",3));
+		dish1.addIngredient(new Ingredient("Broth",100,"ml",1));
+		dishes.add(dish6);
+		
+		
 		selectedDishes.add(dish1);
 		selectedDishes.add(dish2);
+		selectedDishes.add(dish3);
+
 	}
 	
 	/**
