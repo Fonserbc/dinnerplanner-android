@@ -23,6 +23,7 @@
     	android:id="@+id/text_dish_instruction"
     	android:layout_width="wrap_content"
     	android:layout_height="wrap_content"
+    	android:scrollbars = "vertical"
         android:text="@string/dish_instruction" />
     
 </LinearLayout>
