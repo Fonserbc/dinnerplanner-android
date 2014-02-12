@@ -62,6 +62,7 @@ public class MenuView {
 	
 	private ListView ingredientsListView;
 	private View instruction_view;
+	private View currentview;
 
 	public MenuView(Context context, View view, DinnerModel model) {
 
@@ -79,12 +80,25 @@ public class MenuView {
 		
 		fillIngredientsList();
 
-		// Setup the rest of the view layout
-		((RelativeLayout) view.findViewById(R.id.info_scroll)).addView(ingredientsListView);
+		changeView(0);
 	}
 	
 	public void changeView(int i){
+		if(currentview != null){
+			((ViewGroup) view.findViewById(R.id.info_scroll)).removeView(currentview);
+		}
 		
+		if(i == 0){
+			currentview = ingredientsListView;
+			
+		}
+		else{
+			currentview = instruction_view;
+			fillInstructionView(i);
+			
+		}
+		// Setup the rest of the view layout
+		((RelativeLayout) view.findViewById(R.id.info_scroll)).addView(currentview);
 	}
 
 	private void fillIngredientsList() {		
