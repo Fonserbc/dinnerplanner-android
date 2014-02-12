@@ -35,7 +35,7 @@ public class ChooseView {
 		this.model = model;
 		this.inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 		
-		fillChooseList();
+		getDishList();
 		
 
 		//View dishPreview = inflater.inflate(R.layout.dish_preview, null);
@@ -45,11 +45,19 @@ public class ChooseView {
 		
 	}
 	
-	
-	private void fillChooseList (){
-		LinearLayout starterList = (LinearLayout) view.findViewById(R.id.starter_list);
+	private void getDishList(){
+		LinearLayout dishList = (LinearLayout) view.findViewById(R.id.starter_list);
+		fillDishList(dishList, 1);
 		
-		Set<Dish> dishes = model.getDishesOfType(1);
+		LinearLayout dishList2 = (LinearLayout) view.findViewById(R.id.main_list);
+		fillDishList(dishList2, 2);
+
+		LinearLayout dishList3 = (LinearLayout) view.findViewById(R.id.dessert_list);
+		fillDishList(dishList3, 3);
+	}
+	
+	private void fillDishList (LinearLayout dishList, int dishType){
+		Set<Dish> dishes = model.getDishesOfType(dishType);
 		
 		for (Iterator<Dish> it = dishes.iterator(); it.hasNext(); ) {
 			Dish dish = it.next();
@@ -59,10 +67,10 @@ public class ChooseView {
 			dishName.setText(dish.getName());
 			
 			ImageView dishImg = (ImageView) dishPreview.findViewById(R.id.dish_photo);
-			Log.v("hej", R.drawable.toast+" and get "+context.getResources().getIdentifier(dish.getImage(), "drawable", context.getPackageName()));
+			//Log.v("hej", R.drawable.toast+" and get "+context.getResources().getIdentifier(dish.getImage(), "drawable", context.getPackageName()));
 			dishImg.setImageResource(context.getResources().getIdentifier(dish.getImage(), "drawable", context.getPackageName()));
 		
-			starterList.addView(dishPreview);
+			dishList.addView(dishPreview);
 		}
 	}
 

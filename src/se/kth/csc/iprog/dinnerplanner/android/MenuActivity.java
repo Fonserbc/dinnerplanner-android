@@ -68,7 +68,7 @@ public class MenuActivity extends Activity {
 		(new ImageButton.OnClickListener() {
 			  @Override
 			  public void onClick(View v) {
-				  menuView.changeView(2);
+				  menuView.changeView(3);
 			  }
 		});
 	}
