@@ -4,6 +4,7 @@ import se.kth.csc.iprog.dinnerplanner.android.R;
 import se.kth.csc.iprog.dinnerplanner.model.DinnerModel;
 import se.kth.csc.iprog.dinnerplanner.model.Dish;
 import android.content.Context;
+import android.text.method.ScrollingMovementMethod;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.RelativeLayout;
@@ -25,7 +26,7 @@ public class TempMenuView {
 		
 		instruction_view = (View) inflater.inflate(R.layout.dish_instructions, null);
 		
-		int i = 2;
+		int i = 1;
 		FillView(i);
 		
 		// Setup the rest of the view layout
@@ -34,6 +35,7 @@ public class TempMenuView {
 	}
 	
 	public void FillView(int type){
+		
 		Dish dish = model.getSelectedDish(type);
 		
 		if(dish!= null){
@@ -44,7 +46,8 @@ public class TempMenuView {
 			dishname.setText(dish.getName());
 		
 			TextView dishin = (TextView) instruction_view.findViewById(R.id.text_dish_instruction);
-			dishin.setText(dish.getDescription());
+			dishin.setText(dish.getDescription().replaceAll("\\. ", "\\.\n"));
+			dishin.setMovementMethod(new ScrollingMovementMethod());
 		}
 	}
 	
