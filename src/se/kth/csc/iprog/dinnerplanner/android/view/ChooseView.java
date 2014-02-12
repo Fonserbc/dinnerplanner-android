@@ -14,6 +14,8 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
@@ -25,30 +27,24 @@ public class ChooseView {
 	public View view;
 	private DinnerModel model;
 	private Context context;
+	private ChooseActivity activity;
 	private LayoutInflater inflater;
 
-	public ChooseView(Context context, View view, DinnerModel model) {
+	public ChooseView(Context context, View view, DinnerModel model, ChooseActivity activity) {
 
 		// store in the class the reference to the Android View
 		this.context = context;
 		this.view = view;
 		this.model = model;
+		this.activity = activity;
 		this.inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 		
 		
 		
 		getDishList();
 		
-		Log.d("total price", Float.toString(model.getTotalMenuPrice()));
 		TextView totalCost = (TextView) view.findViewById(R.id.text_cost_amount);
 		totalCost.setText(Float.toString(model.getTotalMenuPrice()) + " SEK");
-		
-		
-
-		//View dishPreview = inflater.inflate(R.layout.dish_preview, null);
-		//starterList.addView(dishPreview);
-
-		// Setup the rest of the view layout
 		
 	}
 	
@@ -73,14 +69,25 @@ public class ChooseView {
 			TextView dishName = (TextView) dishPreview.findViewById(R.id.dish_name);
 			dishName.setText(dish.getName());
 			
-			ImageView dishImg = (ImageView) dishPreview.findViewById(R.id.dish_photo);
+			ImageButton dishImg = (ImageButton) dishPreview.findViewById(R.id.dish_photo);
 			//Log.v("hej", R.drawable.toast+" and get "+context.getResources().getIdentifier(dish.getImage(), "drawable", context.getPackageName()));
 			dishImg.setImageResource(context.getResources().getIdentifier(dish.getImage(), "drawable", context.getPackageName()));
 		
-			dishList.addView(dishPreview);
+			activity.registerDishToButton(dish, dishImg);
+			
+			dishList.addView(dishPreview);			
 		}
 	}
-
-
-
+	
+	public View createDishInfo (Dish d) {
+		View layout = inflater.inflate(R.layout.dish_info, null);
+		
+		((TextView) layout.findViewById(R.id.dish_info_name)).setText(d.getName());
+		((ImageView) layout.findViewById(R.id.dish_info_image)).setImageResource(context.getResources().getIdentifier(d.getImage(), "drawable", context.getPackageName()));
+		float dishPrice = model.getDishPrice(d);
+		((TextView) layout.findViewById(R.id.dish_info_cost_total)).setText(String.format("%.1f", dishPrice) + " SEK");
+		((TextView) layout.findViewById(R.id.dish_info_cost_person)).setText("("+String.format("%.1f", dishPrice/(float)model.getNumberOfGuests()) + " SEK / Person)");
+		
+		return layout;
+	}
 }
