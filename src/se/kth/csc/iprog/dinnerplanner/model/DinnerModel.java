@@ -3,8 +3,6 @@ package se.kth.csc.iprog.dinnerplanner.model;
 import java.util.HashSet;
 import java.util.Set;
 
-import android.util.Log;
-
 public class DinnerModel implements IDinnerModel {
 
 	Set<Dish> dishes = new HashSet<Dish>();

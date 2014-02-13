@@ -12,15 +12,10 @@ public class StartPageView {
 
 	public StartPageView(View view, DinnerModel model) {
 
-		// store in the class the reference to the Android View
 		this.view = view;
 		this.model = model;
 
 		TextView start = (TextView) view.findViewById(R.id.start_page);
-		//example.setText("Hello world");
-
-		// Setup the rest of the view layout
-		
 	}
 
 }
