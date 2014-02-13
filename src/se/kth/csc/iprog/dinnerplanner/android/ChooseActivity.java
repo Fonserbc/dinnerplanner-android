@@ -5,6 +5,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 import se.kth.csc.iprog.dinnerplanner.android.view.ChooseView;
+import se.kth.csc.iprog.dinnerplanner.android.view.ChooseViewController;
 import se.kth.csc.iprog.dinnerplanner.model.DinnerModel;
 import se.kth.csc.iprog.dinnerplanner.model.Dish;
 import android.os.Bundle;
@@ -36,7 +37,11 @@ public class ChooseActivity extends Activity {
 		setContentView(R.layout.activity_choose);
 
 		chooseView = new ChooseView(getBaseContext(), findViewById(R.layout.activity_choose), model, this);
-
+		
+		ChooseViewController chooseCtrl = new ChooseViewController(model, chooseView);
+		
+		
+/*
 		Button createButton = (Button) findViewById(R.id.menu_create);
 	    createButton.setOnClickListener
 	    (new Button.OnClickListener(){
@@ -49,6 +54,8 @@ public class ChooseActivity extends Activity {
 			}
 	    }
 	    );
+	    */
+	    
 		EditText numberView = (EditText) findViewById(R.id.number_participants);
 		numberView.setOnEditorActionListener
 		(new OnEditorActionListener(){
@@ -57,8 +64,8 @@ public class ChooseActivity extends Activity {
 				if(arg1 == EditorInfo.IME_ACTION_DONE) {
 					storeDinnerParticipants();
 					//this should be in view in the future
-					TextView totalCost = (TextView) findViewById(R.id.text_cost_amount);
-					totalCost.setText(Float.toString(model.getTotalMenuPrice()) + " SEK");
+					//TextView totalCost = (TextView) findViewById(R.id.text_cost_amount);
+					//totalCost.setText(Float.toString(model.getTotalMenuPrice()) + " SEK");
 					return false;
 				}
 				return false;

@@ -12,6 +12,7 @@ import se.kth.csc.iprog.dinnerplanner.model.Dish;
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -24,6 +25,8 @@ public class ChooseView implements Observer{
 	private Context context;
 	private ChooseActivity activity;
 	private LayoutInflater inflater;
+	public Button createButton;
+
 	
 	/*
 	public interface Observer{
@@ -42,7 +45,9 @@ public class ChooseView implements Observer{
 		this.activity = activity;
 		this.inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 		model.addObserver(this);
+		Button createButton;
 
+		createButton = (Button) view.findViewById(R.id.menu_create);
 		
 		
 		
