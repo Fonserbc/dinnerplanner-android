@@ -15,15 +15,18 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.ListView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 public class MenuView {
 	
-	private Context context;
-	
-	public class IngredientsArrayAdapter extends ArrayAdapter<Ingredient> {
+	/**
+	 * Class for displaying the ingredients on the ingredients list properly
+	 */
+	private class IngredientsArrayAdapter extends ArrayAdapter<Ingredient> {
 		private Context context;
 		private ArrayList<Ingredient> ingredients;
 		private int numberOfGuests;
@@ -55,50 +58,76 @@ public class MenuView {
 	}
 
 	public View view;
-	DinnerModel model;
-	LayoutInflater inflater;
+	
+	public Button backButton;
+	public ImageButton ingredientsButton;
+	public ImageButton starterButton;
+	public ImageButton mainButton;
+	public ImageButton dessertButton;
+	
+	
+	private Context context;
+	private DinnerModel model;
+	private LayoutInflater inflater;
 	
 	private ListView ingredientsListView;
-	private View instruction_view;
-	private View currentview;
+	private View instructionsView;
+	private View currentView;
+	private int currentViewId = -1;
 
 	public MenuView(Context context, View view, DinnerModel model) {
 
-		// store in the class the reference to the Android View
 		this.context = context;
 		this.view = view;
 		this.model = model;
 		this.inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 		
-		instruction_view = (View) inflater.inflate(R.layout.dish_instructions, null);
-		ingredientsListView = (ListView) inflater.inflate(R.layout.ingredients_list, null);
-		TextView totalCost = (TextView) view.findViewById(R.id.text_menu_price);
+		// Find important views
+		backButton = (Button)view.findViewById(R.id.button_back);
+		ingredientsButton = (ImageButton)view.findViewById(R.id.ingredients);
+		starterButton = (ImageButton)view.findViewById(R.id.starterdish);
+		mainButton = (ImageButton)view.findViewById(R.id.maindish);
+		dessertButton = (ImageButton)view.findViewById(R.id.dessertdish);
 		
+		// Inflate views
+		instructionsView = (View) inflater.inflate(R.layout.dish_instructions, null);
+		ingredientsListView = (ListView) inflater.inflate(R.layout.ingredients_list, null);
+		
+		// Update info of views based on the model
+		TextView totalCost = (TextView) view.findViewById(R.id.text_menu_price);
 		totalCost.setText(Float.toString(model.getTotalMenuPrice()) + " SEK");
 		
 		fillIngredientsList();
 
-		changeView(0);
+		// Set the current view to the ingredients List
+		changeView(0); 
 	}
 	
 	public void changeView(int i){
-		if(currentview != null){
-			((ViewGroup) view.findViewById(R.id.info_scroll)).removeView(currentview);
+		if (i == currentViewId) return; // Nothing to change
+
+		if(i > 0){ // Dish Instructions
+			fillInstructionView(i);
 		}
 		
-		if(i == 0){
-			currentview = ingredientsListView;
+		// If we come or go to the ingredients list we need to change the view
+		if (currentViewId == 0 || i == 0) {
+			if(currentView != null){
+				((ViewGroup) view.findViewById(R.id.info_scroll)).removeView(currentView);
+			}
 			
-		}
-		else{
-			currentview = instruction_view;
-			fillInstructionView(i);
+			if (i == 0) currentView = ingredientsListView;
+			else currentView = instructionsView;
 			
+			((RelativeLayout) view.findViewById(R.id.info_scroll)).addView(currentView);
 		}
-		// Setup the rest of the view layout
-		((RelativeLayout) view.findViewById(R.id.info_scroll)).addView(currentview);
+		
+		currentViewId = i;
 	}
 
+	/**
+	 * Fills the ListView of the ingredients list with the current menu ingredients
+	 */
 	private void fillIngredientsList() {		
 		ArrayList<Ingredient> ingredients = retrieveIngredients(model.getFullMenu());
 		
@@ -125,7 +154,7 @@ public class MenuView {
 				
 				ingredients.add(current);				
 			}
-			else {
+			else { // New ingredient
 				ingNames.put(i.getName(), ingredients.size());
 				Ingredient newI = new Ingredient(i);
 				ingredients.add(newI);
@@ -135,22 +164,28 @@ public class MenuView {
 		return ingredients;
 	}
 	
+	/**
+	 * Fills the instruction view with the specific dish to display
+	 */
 	public void fillInstructionView(int type){
 		Dish dish = model.getSelectedDish(type);
 		
 		if(dish!= null){
-			TextView dishtype = (TextView) instruction_view.findViewById(R.id.text_type_of_dish);
+			TextView dishtype = (TextView) instructionsView.findViewById(R.id.text_type_of_dish);
 			dishtype.setText(typeToString(dish.getType()));
 	
-			TextView dishname = (TextView) instruction_view.findViewById(R.id.text_name_of_dish);
+			TextView dishname = (TextView) instructionsView.findViewById(R.id.text_name_of_dish);
 			dishname.setText(dish.getName());
 		
-			TextView dishin = (TextView) instruction_view.findViewById(R.id.text_dish_instruction);
+			TextView dishin = (TextView) instructionsView.findViewById(R.id.text_dish_instruction);
 			dishin.setText(dish.getDescription().replaceAll("\\. ", "\\.\n"));
 			dishin.setMovementMethod(new ScrollingMovementMethod());
 		}
 	}
 	
+	/**
+	 * Auxiliary function of fillInstructionView function
+	 */
 	private String typeToString(int i){
 		if (i == 1)
 			return "Starter";
