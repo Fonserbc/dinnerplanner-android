@@ -1,6 +1,8 @@
 package se.kth.csc.iprog.dinnerplanner.android.view;
 
 import java.util.Iterator;
+import java.util.Observable;
+import java.util.Observer;
 import java.util.Set;
 
 import se.kth.csc.iprog.dinnerplanner.android.ChooseActivity;
@@ -15,13 +17,21 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-public class ChooseView {
+public class ChooseView implements Observer{
 
 	public View view;
 	private DinnerModel model;
 	private Context context;
 	private ChooseActivity activity;
 	private LayoutInflater inflater;
+	
+	/*
+	public interface Observer{
+		void update(Observable o);
+
+	}
+	*/
+	
 
 	public ChooseView(Context context, View view, DinnerModel model, ChooseActivity activity) {
 
@@ -31,6 +41,8 @@ public class ChooseView {
 		this.model = model;
 		this.activity = activity;
 		this.inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+		model.addObserver(this);
+
 		
 		
 		
@@ -39,6 +51,11 @@ public class ChooseView {
 		//TextView totalCost = (TextView) view.findViewById(R.id.text_cost_amount);
 		//totalCost.setText(Float.toString(model.getTotalMenuPrice()) + " SEK");
 		
+	}
+	
+	private void setTotalCost(){
+		TextView totalCost = (TextView) view.findViewById(R.id.text_cost_amount);
+		totalCost.setText(Float.toString(model.getTotalMenuPrice()) + " SEK");
 	}
 	
 	private void getDishList(){
@@ -82,5 +99,13 @@ public class ChooseView {
 		((TextView) layout.findViewById(R.id.dish_info_cost_person)).setText("("+String.format("%.1f", dishPrice/(float)model.getNumberOfGuests()) + " SEK / Person)");
 		
 		return layout;
+	}
+
+	@Override
+	public void update(Observable arg0, Object arg1) {
+		setTotalCost();
+
+		// TODO Auto-generated method stub
+		
 	}
 }
