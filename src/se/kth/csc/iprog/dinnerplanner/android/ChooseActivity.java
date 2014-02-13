@@ -26,6 +26,7 @@ public class ChooseActivity extends Activity {
 
 	private DinnerModel model;
 	private ChooseView chooseView;
+	private ChooseViewController chooseCtrl;
 	private Map<String,Dish> nameToDish = new HashMap<String,Dish>();
 	
 	@Override
@@ -38,7 +39,7 @@ public class ChooseActivity extends Activity {
 
 		chooseView = new ChooseView(getBaseContext(), findViewById(R.layout.activity_choose), model, this);
 		
-		ChooseViewController chooseCtrl = new ChooseViewController(model, chooseView);
+		chooseCtrl = new ChooseViewController(this,model,chooseView);
 		
 		
 /*

@@ -28,12 +28,7 @@ public class ChooseView implements Observer{
 	public Button createButton;
 
 	
-	/*
-	public interface Observer{
-		void update(Observable o);
 
-	}
-	*/
 	
 
 	public ChooseView(Context context, View view, DinnerModel model, ChooseActivity activity) {
@@ -45,7 +40,6 @@ public class ChooseView implements Observer{
 		this.activity = activity;
 		this.inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 		model.addObserver(this);
-		Button createButton;
 
 		createButton = (Button) view.findViewById(R.id.menu_create);
 		
