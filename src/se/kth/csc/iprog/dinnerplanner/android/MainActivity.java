@@ -26,18 +26,8 @@ public class MainActivity extends Activity {
         
     	// Creating the view class instance
         StartPageView mainView = new StartPageView(findViewById(R.layout.start_page), model);
-        StartPageController mainController = new StartPageController(this, findViewById(R.layout.start_page), model);
+        StartPageController mainController = new StartPageController(this, mainView, model);
         
-       /* Button startButton = (Button) mainView.view.findViewById(R.id.button_start);
-        startButton.setOnClickListener
-        (new Button.OnClickListener(){
-			@Override
-			public void onClick(View arg0) {
-				Intent intent = new Intent(getBaseContext(),ChooseActivity.class);
-				startActivity(intent);
-			}
-        }
-        );*/
     }
 
 }
