@@ -1,5 +1,6 @@
 package se.kth.csc.iprog.dinnerplanner.android;
 
+import se.kth.csc.iprog.dinnerplanner.android.view.StartPageController;
 import se.kth.csc.iprog.dinnerplanner.android.view.StartPageView;
 import se.kth.csc.iprog.dinnerplanner.model.DinnerModel;
 import android.os.Bundle;
@@ -25,8 +26,9 @@ public class MainActivity extends Activity {
         
     	// Creating the view class instance
         StartPageView mainView = new StartPageView(findViewById(R.layout.start_page), model);
+        StartPageController mainController = new StartPageController(this, findViewById(R.layout.start_page), model);
         
-        Button startButton = (Button) mainView.view.findViewById(R.id.button_start);
+       /* Button startButton = (Button) mainView.view.findViewById(R.id.button_start);
         startButton.setOnClickListener
         (new Button.OnClickListener(){
 			@Override
@@ -35,7 +37,7 @@ public class MainActivity extends Activity {
 				startActivity(intent);
 			}
         }
-        );
+        );*/
     }
 
 }
