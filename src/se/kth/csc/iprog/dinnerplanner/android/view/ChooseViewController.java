@@ -26,6 +26,7 @@ public class ChooseViewController implements OnClickListener {
 	@Override	
 	public void onClick(View arg0) {
 		//storeDinnerParticipants();
+		//hej
 		
 		Intent intent = new Intent(activity.getBaseContext(), MenuActivity.class);
 		activity.startActivity(intent);
