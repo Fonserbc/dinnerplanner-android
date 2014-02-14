@@ -56,7 +56,7 @@ public class ChooseActivity extends Activity {
 	    }
 	    );
 	    */
-	    
+	    /*
 		EditText numberView = (EditText) findViewById(R.id.number_participants);
 		numberView.setOnEditorActionListener
 		(new OnEditorActionListener(){
@@ -65,14 +65,14 @@ public class ChooseActivity extends Activity {
 				if(arg1 == EditorInfo.IME_ACTION_DONE) {
 					storeDinnerParticipants();
 					//this should be in view in the future
-					//TextView totalCost = (TextView) findViewById(R.id.text_cost_amount);
-					//totalCost.setText(Float.toString(model.getTotalMenuPrice()) + " SEK");
+					TextView totalCost = (TextView) findViewById(R.id.text_cost_amount);
+					totalCost.setText(Float.toString(model.getTotalMenuPrice()) + " SEK");
 					return false;
 				}
 				return false;
 			}
 			
-		});
+		});*/
 	}
 
 	@Override
@@ -81,7 +81,7 @@ public class ChooseActivity extends Activity {
 		getMenuInflater().inflate(R.menu.choose, menu);
 		return true;
 	}
-	
+	/*
 	public void storeDinnerParticipants() {
 		EditText numberView = (EditText) findViewById(R.id.number_participants);
 		if (numberView.getText().length() > 0){
@@ -92,6 +92,7 @@ public class ChooseActivity extends Activity {
 			model.setNumberOfGuests(Integer.parseInt(numberView.getText().toString()));
 		}
 	}
+	*/
 	
 	public void registerDishToButton(Dish d, ImageButton b) {
 		nameToDish.put(d.getName(), d);
