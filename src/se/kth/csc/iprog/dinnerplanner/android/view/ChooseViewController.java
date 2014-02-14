@@ -58,27 +58,10 @@ public class ChooseViewController implements OnClickListener, OnEditorActionList
 				view.numberView.setText("1");
 				model.setNumberOfGuests(Integer.parseInt(view.numberView.getText().toString()) );
 			}
-			
-			
-			//this should be in view in the future
-			//TextView totalCost = (TextView) view.findViewById(R.id.text_cost_amount);
-			//totalCost.setText(Float.toString(model.getTotalMenuPrice()) + " SEK");
+
 			return false;
 		}
 		return false;
 	}
-	
-	/*
-	public void storeDinnerParticipants() {
-		EditText numberView = (EditText) findViewById(R.id.number_participants);
-		if (numberView.getText().length() > 0){
-			model.setNumberOfGuests(Integer.parseInt(numberView.getText().toString()));
-		}
-		else{
-			numberView.setText("1");
-			model.setNumberOfGuests(Integer.parseInt(numberView.getText().toString()));
-		}
-	}
-		*/
 
 }
