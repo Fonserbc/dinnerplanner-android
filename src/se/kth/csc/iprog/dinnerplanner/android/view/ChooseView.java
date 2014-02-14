@@ -13,6 +13,7 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -27,7 +28,7 @@ public class ChooseView implements Observer{
 	private LayoutInflater inflater;
 	public Button createButton;
 	ImageButton cancelButton;
-
+	public EditText numberView;
 	
 
 	
@@ -48,8 +49,7 @@ public class ChooseView implements Observer{
 		
 		getDishList();
 		
-		//TextView totalCost = (TextView) view.findViewById(R.id.text_cost_amount);
-		//totalCost.setText(Float.toString(model.getTotalMenuPrice()) + " SEK");
+		numberView = (EditText) view.findViewById(R.id.number_participants);
 		
 	}
 	
