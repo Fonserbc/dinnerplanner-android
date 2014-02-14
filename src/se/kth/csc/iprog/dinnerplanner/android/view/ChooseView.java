@@ -45,7 +45,7 @@ public class ChooseView implements Observer{
 
 		createButton = (Button) view.findViewById(R.id.menu_create);
 		
-		
+
 		
 		getDishList();
 		

@@ -37,16 +37,26 @@ public class ChooseViewController implements OnClickListener, OnEditorActionList
 	public void onClick(View v) {
 		//storeDinnerParticipants();
 		//hej
-		/*switch (v.getId()){
-		case R.id.menu_create:*/
+		/*
+		switch (v.getId()){
+		case R.id.menu_create:
 			Intent intent = new Intent(activity.getBaseContext(), MenuActivity.class);
 			activity.startActivity(intent);
-			/*break;
+			break;
+			*/
+			
+		if (v.getId() == R.id.menu_create){
+			Intent intent = new Intent(activity.getBaseContext(), MenuActivity.class);
+			activity.startActivity(intent);
+		}
+	}
+		/*
 		case R.id.dish_info_cancel:
 			//close popup
 			break;
 		}*/
-	}
+		
+	//}
 	
 
 	public boolean onEditorAction(TextView totalCost, int arg1, KeyEvent arg2) {
