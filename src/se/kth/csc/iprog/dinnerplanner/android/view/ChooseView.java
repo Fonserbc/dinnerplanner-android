@@ -1,6 +1,9 @@
 package se.kth.csc.iprog.dinnerplanner.android.view;
 
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Iterator;
+import java.util.Map;
 import java.util.Observable;
 import java.util.Observer;
 import java.util.Set;
@@ -10,6 +13,7 @@ import se.kth.csc.iprog.dinnerplanner.android.R;
 import se.kth.csc.iprog.dinnerplanner.model.DinnerModel;
 import se.kth.csc.iprog.dinnerplanner.model.Dish;
 import android.content.Context;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
@@ -24,28 +28,26 @@ public class ChooseView implements Observer{
 	public View view;
 	private DinnerModel model;
 	private Context context;
-	private ChooseActivity activity;
+	//private ChooseActivity activity;
 	private LayoutInflater inflater;
 	public Button createButton;
 	ImageButton cancelButton;
 	public EditText numberView;
+	Map<String,Dish> nameToDish = new HashMap<String,Dish>();
+    ArrayList<ImageButton> buttomList = new ArrayList<ImageButton>();
 	
 
-	
-
-	public ChooseView(Context context, View view, DinnerModel model, ChooseActivity activity) {
+	public ChooseView(Context context, View view, DinnerModel model) {
 
 		// store in the class the reference to the Android View
 		this.context = context;
 		this.view = view;
 		this.model = model;
-		this.activity = activity;
+		//this.activity = activity;
 		this.inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 		model.addObserver(this);
 
 		createButton = (Button) view.findViewById(R.id.menu_create);
-		
-
 		
 		getDishList();
 		
@@ -82,8 +84,11 @@ public class ChooseView implements Observer{
 			ImageButton dishImg = (ImageButton) dishPreview.findViewById(R.id.dish_photo);
 			//Log.v("hej", R.drawable.toast+" and get "+context.getResources().getIdentifier(dish.getImage(), "drawable", context.getPackageName()));
 			dishImg.setImageResource(context.getResources().getIdentifier(dish.getImage(), "drawable", context.getPackageName()));
-		
-			activity.registerDishToButton(dish, dishImg);
+		    
+			//adding dish and buttons that the controller will get
+			buttomList.add(dishImg);
+			nameToDish.put(dish.getName(), dish);
+			//activity.registerDishToButton(dish, dishImg);
 			
 			dishList.addView(dishPreview);			
 		}
@@ -98,7 +103,6 @@ public class ChooseView implements Observer{
 		((TextView) layout.findViewById(R.id.dish_info_cost_total)).setText(String.format("%.1f", dishPrice) + " SEK");
 		((TextView) layout.findViewById(R.id.dish_info_cost_person)).setText("("+String.format("%.1f", dishPrice/(float)model.getNumberOfGuests()) + " SEK / Person)");
 		cancelButton = (ImageButton) layout.findViewById(R.id.dish_info_cancel);
-
 		
 		return layout;
 	}

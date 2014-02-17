@@ -27,7 +27,7 @@ public class ChooseActivity extends Activity {
 	private DinnerModel model;
 	private ChooseView chooseView;
 	private ChooseViewController chooseCtrl;
-	private Map<String,Dish> nameToDish = new HashMap<String,Dish>();
+	//private Map<String,Dish> nameToDish = new HashMap<String,Dish>();
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -37,7 +37,7 @@ public class ChooseActivity extends Activity {
 		
 		setContentView(R.layout.activity_choose);
 
-		chooseView = new ChooseView(getBaseContext(), findViewById(R.layout.activity_choose), model, this);
+		chooseView = new ChooseView(getBaseContext(), findViewById(R.layout.activity_choose), model);
 		
 		chooseCtrl = new ChooseViewController(this,model,chooseView);
 		
@@ -94,7 +94,7 @@ public class ChooseActivity extends Activity {
 	}
 	*/
 	
-	public void registerDishToButton(Dish d, ImageButton b) {
+/*	public void registerDishToButton(Dish d, ImageButton b) {
 		nameToDish.put(d.getName(), d);
 		
 		b.setOnClickListener
@@ -119,5 +119,5 @@ public class ChooseActivity extends Activity {
 		AlertDialog alert = builder.create();
 		
 		alert.show();
-	}
+	}*/
 }
