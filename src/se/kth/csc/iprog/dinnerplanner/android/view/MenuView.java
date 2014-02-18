@@ -135,6 +135,27 @@ public class MenuView {
 		}
 		
 		currentViewId = i;
+		
+		for (int j = 1; j <= 3; ++j) {
+			switch (j) {
+				case 0:
+					if (j == currentViewId) ingredientsButton.setBackgroundResource(R.drawable.custom_border);
+					else ingredientsButton.setBackgroundResource(R.drawable.custom_border_off);
+					break;
+				case 1:
+					if (j == currentViewId) starterButton.setBackgroundResource(R.drawable.custom_border);
+					else starterButton.setBackgroundResource(R.drawable.custom_border_off);
+					break;
+				case 2:
+					if (j == currentViewId) mainButton.setBackgroundResource(R.drawable.custom_border);
+					else mainButton.setBackgroundResource(R.drawable.custom_border_off);
+					break;
+				case 3:
+					if (j == currentViewId) dessertButton.setBackgroundResource(R.drawable.custom_border);
+					else dessertButton.setBackgroundResource(R.drawable.custom_border_off);
+					break;
+			}
+		}
 	}
 
 	/**

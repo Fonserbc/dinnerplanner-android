@@ -3,6 +3,7 @@
     android:id="@layout/dish_preview"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:background="@drawable/custom_border_off"
     android:orientation="vertical"
     android:paddingRight="6dp" >
     

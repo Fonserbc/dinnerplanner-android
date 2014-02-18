@@ -60,6 +60,13 @@ public class DinnerModel extends Observable implements IDinnerModel  {
 		dish6.addIngredient(new Ingredient("Frozen peas",100,"g",3));
 		dish6.addIngredient(new Ingredient("Broth",100,"ml",1));
 		dishes.add(dish6);
+		
+		Dish dish7 = new Dish("Paella",Dish.MAIN,"paella","Get a spanish guy, preferably from Catalonia, and get him prepare it, its not simple to explain, trust me.");
+		dish7.addIngredient(new Ingredient("Frozen peas",30,"g",3));
+		dish7.addIngredient(new Ingredient("Rice",100,"g",1));
+		dish7.addIngredient(new Ingredient("Chicken",100,"g",2));
+		dish7.addIngredient(new Ingredient("Saffron",2,"g",1));
+		dishes.add(dish7);
 
 	}
 	

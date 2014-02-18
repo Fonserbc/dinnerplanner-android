@@ -58,7 +58,7 @@
     		    android:id="@+id/ingredients"
     		    android:layout_width="@dimen/button_size"
     		    android:layout_height="@dimen/button_size"
-    		    android:background="@android:color/transparent"
+    		    android:background="@drawable/custom_border_off"
     		    android:contentDescription="@string/ingredients"
     		    android:scaleType="fitXY"
     		    android:src="@drawable/ingredient" />
@@ -96,7 +96,7 @@
     			        android:id="@+id/starterdish"
     			        android:layout_width="@dimen/button_size"
     			        android:layout_height="@dimen/button_size"
-    			        android:background="@android:color/transparent"
+    			        android:background="@drawable/custom_border_off"
     			        android:contentDescription="@string/starter"
     			        android:scaleType="centerCrop"
     			        android:src="@drawable/dish_not_selected" />
@@ -120,7 +120,7 @@
     			        android:layout_width="@dimen/button_size"
     			        android:layout_height="@dimen/button_size"
     			        android:layout_gravity="center_horizontal"
-    			        android:background="@android:color/transparent"
+    			        android:background="@drawable/custom_border_off"
     			        android:contentDescription="@string/maincourse"
     			        android:scaleType="centerCrop"
     			        android:src="@drawable/dish_not_selected" />
@@ -144,7 +144,7 @@
     			        android:layout_width="@dimen/button_size"
     			        android:layout_height="@dimen/button_size"
     			        android:layout_gravity="center_horizontal"
-    			        android:background="@android:color/transparent"
+    			        android:background="@drawable/custom_border_off"
     			        android:contentDescription="@string/dessert"
     			        android:scaleType="centerCrop"
     			        android:src="@drawable/dish_not_selected" />

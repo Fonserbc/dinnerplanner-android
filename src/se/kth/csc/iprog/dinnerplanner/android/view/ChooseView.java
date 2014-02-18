@@ -133,15 +133,11 @@ public class ChooseView implements Observer{
 			for (int i = 0; i < parent.getChildCount(); ++i) {
 				TextView childName = (TextView) parent.getChildAt(i).findViewById(R.id.dish_name);
 				
-				Log.d("Hej", childName.getText()+"");
-				
 				if (childName.getText().equals(dishName)) {
-					((LinearLayout) parent.getChildAt(i)).setBackgroundColor(R.drawable.custom_border);
-					Log.d("Hej", "Not the selected");
+					parent.getChildAt(i).setBackgroundResource(R.drawable.custom_border);
 				}
 				else {
-					((LinearLayout) parent.getChildAt(i)).setBackgroundColor(R.style.AppBaseTheme);
-					Log.d("Hej", "Not the selected");
+					parent.getChildAt(i).setBackgroundResource(R.drawable.custom_border_off);
 				}
 			}
 			
