@@ -86,18 +86,18 @@ public class MenuView {
 		backButton = (Button)view.findViewById(R.id.button_back);
 		ingredientsButton = (ImageButton)view.findViewById(R.id.ingredients);
 		
+		starterButton = (ImageButton)view.findViewById(R.id.starterdish);
 		if(model.getSelectedDish(1) != null){
-			starterButton = (ImageButton)view.findViewById(R.id.starterdish);
 			starterButton.setImageResource(context.getResources().getIdentifier(model.getSelectedDish(1).getImage(), "drawable", context.getPackageName()));
 		}
 		
+		mainButton = (ImageButton)view.findViewById(R.id.maindish);
 		if(model.getSelectedDish(2) != null){
-			mainButton = (ImageButton)view.findViewById(R.id.maindish);
 			mainButton.setImageResource(context.getResources().getIdentifier(model.getSelectedDish(2).getImage(), "drawable", context.getPackageName()));
 		}
 		
+		dessertButton = (ImageButton)view.findViewById(R.id.dessertdish);
 		if(model.getSelectedDish(3) != null){
-			dessertButton = (ImageButton)view.findViewById(R.id.dessertdish);
 			dessertButton.setImageResource(context.getResources().getIdentifier(model.getSelectedDish(3).getImage(), "drawable", context.getPackageName()));
 		}
 		

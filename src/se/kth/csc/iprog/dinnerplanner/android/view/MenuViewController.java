@@ -20,15 +20,15 @@ public class MenuViewController implements OnClickListener {
 		this.view.ingredientsButton.setOnClickListener(this);
 		
 		//checking if dishes are selected, you can only click on seleced dishes
-		if(view.starterButton != null){
+		if(model.getSelectedDish(1) != null){
 			view.starterButton.setOnClickListener(this);	
 		}
 		
-		if(view.mainButton != null){
+		if(model.getSelectedDish(2) != null){
 			view.mainButton.setOnClickListener(this);
 		}
 		
-		if(view.dessertButton != null){
+		if(model.getSelectedDish(3) != null){
 			view.dessertButton.setOnClickListener(this);
 		}
 	}
