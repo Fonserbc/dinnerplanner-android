@@ -13,6 +13,7 @@ import se.kth.csc.iprog.dinnerplanner.android.R;
 import se.kth.csc.iprog.dinnerplanner.model.DinnerModel;
 import se.kth.csc.iprog.dinnerplanner.model.Dish;
 import android.content.Context;
+import android.graphics.drawable.Drawable;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -36,6 +37,7 @@ public class ChooseView implements Observer{
 	public EditText numberView;
 	Map<String,Dish> nameToDish = new HashMap<String,Dish>();
     ArrayList<ImageButton> buttomList = new ArrayList<ImageButton>();
+    Drawable defaultDishBackground;
 	
 
 	public ChooseView(Context context, View view, DinnerModel model) {
@@ -79,6 +81,7 @@ public class ChooseView implements Observer{
 			Dish dish = it.next();
 			
 			View dishPreview = inflater.inflate(R.layout.dish_preview, null);
+			if (defaultDishBackground == null) defaultDishBackground = dishPreview.getBackground();
 			TextView dishName = (TextView) dishPreview.findViewById(R.id.dish_name);
 			dishName.setText(dish.getName());
 			
@@ -108,10 +111,50 @@ public class ChooseView implements Observer{
 		
 		return layout;
 	}
+	
+	private void selectedDishBorder(){
+		//set border on selected dishes
+		for (int type = 1; type <= 3; ++type) {
+			Dish d = model.getSelectedDish(type);
+			if (d == null) continue;
+			
+			String dishName = d.getName();
+			LinearLayout parent = null;
+			switch (d.getType()) {
+				case 1:
+					parent = (LinearLayout) view.findViewById(R.id.starter_list);
+					break;
+				case 2:
+					parent = (LinearLayout) view.findViewById(R.id.main_list);
+					break;
+				case 3:
+					parent = (LinearLayout) view.findViewById(R.id.dessert_list);
+					break;
+			}
+
+			for (int i = 0; i < parent.getChildCount(); ++i) {
+				TextView childName = (TextView) parent.getChildAt(i).findViewById(R.id.dish_name);
+				
+				if (childName.getText() == dishName) {
+					((LinearLayout) parent.getChildAt(i)).setBackgroundColor(R.drawable.custom_border);
+				}
+				else {
+					((LinearLayout) parent.getChildAt(i)).setBackgroundColor(R.style.AppBaseTheme);
+				}
+			}
+			
+			//view.dish_preview.setBackground(R.drawable.custom_border);
+
+			//view.setBackground(R.drawable.custom_border);
+						//view.setBackgroundColor(R.drawable.custom_border);
+			
+		} 
+	}
 
 	@Override
 	public void update(Observable arg0, Object arg1) {
 		setTotalCost();
+		selectedDishBorder();
 
 		// TODO Auto-generated method stub
 		

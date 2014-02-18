@@ -14,7 +14,8 @@
         android:layout_weight="1"
         android:background="@android:color/transparent"
         android:scaleType="centerCrop"
-        android:src="@drawable/dish_placeholder" />
+        android:src="@drawable/dish_placeholder" 
+        />
     
     <TextView
         android:id="@+id/dish_name"
