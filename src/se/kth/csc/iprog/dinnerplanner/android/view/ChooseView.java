@@ -8,12 +8,10 @@ import java.util.Observable;
 import java.util.Observer;
 import java.util.Set;
 
-import se.kth.csc.iprog.dinnerplanner.android.ChooseActivity;
 import se.kth.csc.iprog.dinnerplanner.android.R;
 import se.kth.csc.iprog.dinnerplanner.model.DinnerModel;
 import se.kth.csc.iprog.dinnerplanner.model.Dish;
 import android.content.Context;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
@@ -28,7 +26,6 @@ public class ChooseView implements Observer{
 	public View view;
 	private DinnerModel model;
 	private Context context;
-	//private ChooseActivity activity;
 	private LayoutInflater inflater;
 	public Button createButton;
 	ImageButton cancelButton;
@@ -111,9 +108,6 @@ public class ChooseView implements Observer{
 
 	@Override
 	public void update(Observable arg0, Object arg1) {
-		setTotalCost();
-
-		// TODO Auto-generated method stub
-		
+		setTotalCost();		
 	}
 }

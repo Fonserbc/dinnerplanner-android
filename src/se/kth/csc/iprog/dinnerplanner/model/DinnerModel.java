@@ -179,11 +179,26 @@ public class DinnerModel extends Observable implements IDinnerModel  {
 	
 	//add dish from menu
 	public void addDish(String name){
+		Dish selected = null;
 		for(Dish d : dishes){
 			if(d.getName().equals(name)){
-				selectedDishes.add(d);
+				selected = d;
+				break;
 			}
 		}
+		
+		if (selected == null) return; //Dish does not exist
+		
+		for (Dish d : selectedDishes) {
+			if (d.getName() == selected.getName()) return; // Dish already selected, nothing to do
+			if (d.getType() == selected.getType()) {
+				selectedDishes.remove(d);
+				break;
+			}
+		}
+		
+		selectedDishes.add(selected);
+		
 		setChanged();
 		notifyObservers();
 	}
