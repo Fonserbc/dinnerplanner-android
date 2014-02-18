@@ -99,7 +99,7 @@
     			        android:background="@android:color/transparent"
     			        android:contentDescription="@string/starter"
     			        android:scaleType="centerCrop"
-    			        android:src="@drawable/toast" />
+    			        android:src="@drawable/dish_not_selected" />
 
     			    <TextView
     			        android:id="@+id/text_menu_startername"
@@ -123,7 +123,7 @@
     			        android:background="@android:color/transparent"
     			        android:contentDescription="@string/maincourse"
     			        android:scaleType="centerCrop"
-    			        android:src="@drawable/meatballs" />
+    			        android:src="@drawable/dish_not_selected" />
 
     			    <TextView
     			        android:id="@+id/text_menu_mainname"
@@ -147,7 +147,7 @@
     			        android:background="@android:color/transparent"
     			        android:contentDescription="@string/dessert"
     			        android:scaleType="centerCrop"
-    			        android:src="@drawable/icecream" />
+    			        android:src="@drawable/dish_not_selected" />
 
     			    <TextView
     			        android:id="@+id/text_menu_dessertname"
