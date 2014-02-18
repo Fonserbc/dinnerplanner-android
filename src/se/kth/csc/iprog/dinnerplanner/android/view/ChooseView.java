@@ -32,6 +32,7 @@ public class ChooseView implements Observer{
 	private LayoutInflater inflater;
 	public Button createButton;
 	ImageButton cancelButton;
+	Button chooseButton;
 	public EditText numberView;
 	Map<String,Dish> nameToDish = new HashMap<String,Dish>();
     ArrayList<ImageButton> buttomList = new ArrayList<ImageButton>();
@@ -103,6 +104,7 @@ public class ChooseView implements Observer{
 		((TextView) layout.findViewById(R.id.dish_info_cost_total)).setText(String.format("%.1f", dishPrice) + " SEK");
 		((TextView) layout.findViewById(R.id.dish_info_cost_person)).setText("("+String.format("%.1f", dishPrice/(float)model.getNumberOfGuests()) + " SEK / Person)");
 		cancelButton = (ImageButton) layout.findViewById(R.id.dish_info_cancel);
+		chooseButton = (Button) layout.findViewById(R.id.dish_choose);
 		
 		return layout;
 	}

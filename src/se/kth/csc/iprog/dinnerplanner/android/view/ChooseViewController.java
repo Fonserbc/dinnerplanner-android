@@ -27,6 +27,8 @@ public class ChooseViewController implements OnClickListener, OnEditorActionList
 	Activity activity;
 	private Map<String,Dish> nameToDish = new HashMap<String,Dish>();
 	private ArrayList<ImageButton> buttomList = new ArrayList<ImageButton>();
+	private AlertDialog alert;
+	private String dishName;
 	
 	
 	public ChooseViewController(Activity activity,DinnerModel model, ChooseView view){
@@ -35,7 +37,6 @@ public class ChooseViewController implements OnClickListener, OnEditorActionList
 		this.view = view;
 
 		view.createButton.setOnClickListener(this);
-		//view.cancelButton.setOnClickListener(this);
 		
 		view.numberView.setOnEditorActionListener(this);
 		
@@ -55,27 +56,18 @@ public class ChooseViewController implements OnClickListener, OnEditorActionList
 	
 	@Override	
 	public void onClick(View v) {
-		//storeDinnerParticipants();
-		/*
-		switch (v.getId()){
-		case R.id.menu_create:
-			Intent intent = new Intent(activity.getBaseContext(), MenuActivity.class);
-			activity.startActivity(intent);
-			break;
-			*/
-			
 		if (v.getId() == R.id.menu_create){
 			Intent intent = new Intent(activity.getBaseContext(), MenuActivity.class);
 			activity.startActivity(intent);
 		}
+		else if (v.getId() == R.id.dish_info_cancel){
+			alert.cancel();
+		}
+		else if (v.getId() == R.id.dish_choose){
+			model.addDish(dishName);
+			alert.cancel();
+		}
 	}
-		/*
-		case R.id.dish_info_cancel:
-			//close popup
-			break;
-		}*/
-		
-	//}
 	
 
 	public boolean onEditorAction(TextView totalCost, int arg1, KeyEvent arg2) {
@@ -96,12 +88,16 @@ public class ChooseViewController implements OnClickListener, OnEditorActionList
 	public void dishDialog(Dish d) {
 		// Prepare Layout
 		View dishInfo = view.createDishInfo(d);
+		view.cancelButton.setOnClickListener(this);
+		view.chooseButton.setOnClickListener(this);
+		dishName = d.getName();
+
 		
 		// Build alert
 		AlertDialog.Builder builder = new AlertDialog.Builder(activity);
 		builder.setView(dishInfo);
 		
-		AlertDialog alert = builder.create();
+		alert = builder.create();
 		
 		alert.show();
 	}
