@@ -5,6 +5,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 import se.kth.csc.iprog.dinnerplanner.android.view.ChooseView;
+import se.kth.csc.iprog.dinnerplanner.android.view.ChooseViewController;
 import se.kth.csc.iprog.dinnerplanner.model.DinnerModel;
 import se.kth.csc.iprog.dinnerplanner.model.Dish;
 import android.os.Bundle;
@@ -25,7 +26,8 @@ public class ChooseActivity extends Activity {
 
 	private DinnerModel model;
 	private ChooseView chooseView;
-	private Map<String,Dish> nameToDish = new HashMap<String,Dish>();
+	private ChooseViewController chooseCtrl;
+	//private Map<String,Dish> nameToDish = new HashMap<String,Dish>();
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -35,8 +37,12 @@ public class ChooseActivity extends Activity {
 		
 		setContentView(R.layout.activity_choose);
 
-		chooseView = new ChooseView(getBaseContext(), findViewById(R.layout.activity_choose), model, this);
-
+		chooseView = new ChooseView(getBaseContext(), findViewById(R.layout.activity_choose), model);
+		
+		chooseCtrl = new ChooseViewController(this,model,chooseView);
+		
+		
+/*
 		Button createButton = (Button) findViewById(R.id.menu_create);
 	    createButton.setOnClickListener
 	    (new Button.OnClickListener(){
@@ -49,6 +55,8 @@ public class ChooseActivity extends Activity {
 			}
 	    }
 	    );
+	    */
+	    /*
 		EditText numberView = (EditText) findViewById(R.id.number_participants);
 		numberView.setOnEditorActionListener
 		(new OnEditorActionListener(){
@@ -64,7 +72,7 @@ public class ChooseActivity extends Activity {
 				return false;
 			}
 			
-		});
+		});*/
 	}
 
 	@Override
@@ -73,7 +81,7 @@ public class ChooseActivity extends Activity {
 		getMenuInflater().inflate(R.menu.choose, menu);
 		return true;
 	}
-	
+	/*
 	public void storeDinnerParticipants() {
 		EditText numberView = (EditText) findViewById(R.id.number_participants);
 		if (numberView.getText().length() > 0){
@@ -84,8 +92,9 @@ public class ChooseActivity extends Activity {
 			model.setNumberOfGuests(Integer.parseInt(numberView.getText().toString()));
 		}
 	}
+	*/
 	
-	public void registerDishToButton(Dish d, ImageButton b) {
+/*	public void registerDishToButton(Dish d, ImageButton b) {
 		nameToDish.put(d.getName(), d);
 		
 		b.setOnClickListener
@@ -110,5 +119,5 @@ public class ChooseActivity extends Activity {
 		AlertDialog alert = builder.create();
 		
 		alert.show();
-	}
+	}*/
 }

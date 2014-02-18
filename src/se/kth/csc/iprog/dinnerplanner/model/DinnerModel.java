@@ -60,11 +60,6 @@ public class DinnerModel extends Observable implements IDinnerModel  {
 		dish6.addIngredient(new Ingredient("Frozen peas",100,"g",3));
 		dish6.addIngredient(new Ingredient("Broth",100,"ml",1));
 		dishes.add(dish6);
-		
-		
-		selectedDishes.add(dish1);
-		selectedDishes.add(dish2);
-		selectedDishes.add(dish3);
 
 	}
 	
@@ -189,6 +184,8 @@ public class DinnerModel extends Observable implements IDinnerModel  {
 				selectedDishes.add(d);
 			}
 		}
+		setChanged();
+		notifyObservers();
 	}
 
 }
