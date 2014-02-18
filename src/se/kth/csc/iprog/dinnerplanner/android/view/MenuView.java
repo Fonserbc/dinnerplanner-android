@@ -89,6 +89,9 @@ public class MenuView {
 		mainButton = (ImageButton)view.findViewById(R.id.maindish);
 		dessertButton = (ImageButton)view.findViewById(R.id.dessertdish);
 		
+		if(model.getSelectedDish(1) != null){
+			starterButton.setImageResource(context.getResources().getIdentifier(model.getSelectedDish(1).getImage(), "drawable", context.getPackageName()));
+		}
 		// Inflate views
 		instructionsView = (View) inflater.inflate(R.layout.dish_instructions, null);
 		ingredientsListView = (ListView) inflater.inflate(R.layout.ingredients_list, null);
