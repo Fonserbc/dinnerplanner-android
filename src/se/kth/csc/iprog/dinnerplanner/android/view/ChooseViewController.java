@@ -6,12 +6,10 @@ import java.util.Map;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Intent;
-import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.inputmethod.EditorInfo;
-import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.TextView.OnEditorActionListener;
@@ -51,7 +49,9 @@ public class ChooseViewController implements OnClickListener, OnEditorActionList
 				}
 		    }
 		    );						
-		}		
+		}
+		
+		model.setNumberOfGuests(1);
 	}
 	
 	@Override	
