@@ -110,8 +110,7 @@
     			        android:layout_height="wrap_content"
     			        android:layout_gravity="center_horizontal"
     			        android:gravity="center_horizontal"
-    			        android:maxEms="@integer/min_price_characters"
-    			        android:text="@string/starter" />
+    			        android:maxEms="@integer/min_price_characters" />
 
     			</LinearLayout>
 
@@ -138,8 +137,7 @@
     			        android:layout_height="wrap_content"
     			        android:layout_gravity="center_horizontal"
     			        android:gravity="center_horizontal"
-    			        android:maxEms="@integer/min_price_characters"
-    			        android:text="@string/maincourse" />
+    			        android:maxEms="@integer/min_price_characters" />
 
     			</LinearLayout>
 
@@ -165,8 +163,7 @@
     			        android:layout_height="wrap_content"
     			        android:layout_gravity="center_horizontal"
     			        android:gravity="center_horizontal"
-    			        android:maxEms="@integer/min_price_characters"
-    			        android:text="@string/dessert" />
+    			        android:maxEms="@integer/min_price_characters" />
 
     			</LinearLayout>
 
