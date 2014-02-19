@@ -91,7 +91,7 @@
     			    android:layout_width="wrap_content"
     			    android:layout_height="wrap_content"
     			    android:orientation="vertical"
-    			    android:layout_marginRight="3dp" >
+    			    android:layout_marginRight="1dp" >
 
     			    <ImageButton
     			        android:id="@+id/starterdish"
@@ -119,7 +119,7 @@
     			    android:layout_width="wrap_content"
     			    android:layout_height="wrap_content"
     			    android:orientation="vertical"
-    			    android:layout_marginRight="3dp" >
+    			    android:layout_marginRight="1dp" >
 
     			    <ImageButton
     			        android:id="@+id/maindish"
