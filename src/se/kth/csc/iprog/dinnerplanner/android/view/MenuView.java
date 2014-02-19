@@ -109,6 +109,8 @@ public class MenuView {
 		// Update info of views based on the model
 		TextView totalCost = (TextView) view.findViewById(R.id.text_menu_price);
 		totalCost.setText(Float.toString(model.getTotalMenuPrice()) + " SEK");
+		TextView ingredientsParticipants = (TextView) ingredientsListView.findViewById(R.id.ingredients_participants);
+		ingredientsParticipants.setText(Integer.toString(model.getNumberOfGuests()) + " pers");
 		
 		fillIngredientsList();
 
@@ -137,26 +139,22 @@ public class MenuView {
 		
 		currentViewId = i;
 		
-		for (int j = 1; j <= 3; ++j) {
+		for (int j = 0; j <= 3; ++j) {
+			ImageButton current = null;
 			switch (j) {
 				case 0:
-					if (j == currentViewId) ingredientsButton.setBackgroundResource(R.drawable.custom_border);
-					else ingredientsButton.setBackgroundResource(R.drawable.custom_border_off);
-					break;
+					current = ingredientsButton; break;
 				case 1:
-					if (j == currentViewId) starterButton.setBackgroundResource(R.drawable.custom_border);
-					else starterButton.setBackgroundResource(R.drawable.custom_border_off);
-					break;
+					current = starterButton; break;
 				case 2:
-					if (j == currentViewId) mainButton.setBackgroundResource(R.drawable.custom_border);
-					else mainButton.setBackgroundResource(R.drawable.custom_border_off);
-					break;
+					current = mainButton; break;
 				case 3:
-					if (j == currentViewId) dessertButton.setBackgroundResource(R.drawable.custom_border);
-					else dessertButton.setBackgroundResource(R.drawable.custom_border_off);
-					break;
+					current = dessertButton; break;
 			}
+			if (j == currentViewId) current.setBackgroundResource(R.drawable.custom_border);
+			else current.setBackgroundResource(R.drawable.custom_border_off);
 		}
+		
 	}
 
 	/**
