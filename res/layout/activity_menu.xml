@@ -100,6 +100,7 @@
     			        android:layout_gravity="center_horizontal"
     			        android:background="@drawable/custom_border_off"
     			        android:contentDescription="@string/starter"
+    			        android:cropToPadding="true"
     			        android:scaleType="centerCrop"
     			        android:src="@drawable/dish_not_selected" />
 
@@ -127,6 +128,7 @@
     			        android:layout_gravity="center_horizontal"
     			        android:background="@drawable/custom_border_off"
     			        android:contentDescription="@string/maincourse"
+    			        android:cropToPadding="true"
     			        android:scaleType="centerCrop"
     			        android:src="@drawable/dish_not_selected" />
 
@@ -153,6 +155,7 @@
     			        android:layout_gravity="center_horizontal"
     			        android:background="@drawable/custom_border_off"
     			        android:contentDescription="@string/dessert"
+    			        android:cropToPadding="true"
     			        android:scaleType="centerCrop"
     			        android:src="@drawable/dish_not_selected" />
 
