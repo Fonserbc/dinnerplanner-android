@@ -15,9 +15,9 @@
     <string name="menu_choose">Choose Menu</string>
     <string name="menu_create">Create</string>
     <string name="default_price">0 SEK</string>
-    <string name="starter">Starter</string>
-    <string name="maincourse">Main Course</string>
-    <string name="dessert">Dessert</string>
+    <string name="starter"></string>
+    <string name="maincourse"></string>
+    <string name="dessert"></string>
     <string name="dish_name_placeholder">Super Dish</string>
     <string name="starter_name">Toast</string>
     <string name="main_name">Chicken</string>

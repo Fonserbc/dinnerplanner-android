@@ -90,16 +90,22 @@ public class MenuView {
 		starterButton = (ImageButton)view.findViewById(R.id.starterdish);
 		if(model.getSelectedDish(1) != null){
 			starterButton.setImageResource(context.getResources().getIdentifier(model.getSelectedDish(1).getImage(), "drawable", context.getPackageName()));
+			TextView tv = (TextView)view.findViewById(R.id.text_menu_startername);
+			tv.setText(model.getSelectedDish(1).getName());
 		}
 		
 		mainButton = (ImageButton)view.findViewById(R.id.maindish);
 		if(model.getSelectedDish(2) != null){
 			mainButton.setImageResource(context.getResources().getIdentifier(model.getSelectedDish(2).getImage(), "drawable", context.getPackageName()));
+			TextView tv = (TextView)view.findViewById(R.id.text_menu_mainname);
+			tv.setText(model.getSelectedDish(2).getName());
 		}
 		
 		dessertButton = (ImageButton)view.findViewById(R.id.dessertdish);
 		if(model.getSelectedDish(3) != null){
 			dessertButton.setImageResource(context.getResources().getIdentifier(model.getSelectedDish(3).getImage(), "drawable", context.getPackageName()));
+			TextView tv = (TextView)view.findViewById(R.id.text_menu_dessertname);
+			tv.setText(model.getSelectedDish(3).getName());
 		}
 		
 		// Inflate views
