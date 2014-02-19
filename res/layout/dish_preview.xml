@@ -15,6 +15,7 @@
         android:layout_weight="1"
         android:cropToPadding="true"
         android:scaleType="centerCrop"
+        android:padding="2dp"
         android:src="@drawable/dish_placeholder" />
             <!-- android:background="@android:color/transparent" -->
     
