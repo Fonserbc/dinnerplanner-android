@@ -3,7 +3,6 @@
     android:id="@layout/dish_preview"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="@drawable/custom_border_off"
     android:orientation="vertical"
     android:paddingRight="6dp" >
     
@@ -11,12 +10,14 @@
         android:id="@+id/dish_photo"
         android:layout_width="@dimen/button_size"
         android:layout_height="@dimen/button_size"
+        android:background="@drawable/custom_border_off"
         android:layout_gravity="center_vertical|center_horizontal"
         android:layout_weight="1"
-        android:background="@android:color/transparent"
+        android:cropToPadding="true"
         android:scaleType="centerCrop"
-        android:src="@drawable/dish_placeholder" 
-        />
+        android:padding="2dp"
+        android:src="@drawable/dish_placeholder" />
+            <!-- android:background="@android:color/transparent" -->
     
     <TextView
         android:id="@+id/dish_name"
