@@ -17,6 +17,7 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
@@ -70,7 +71,7 @@ public class MenuView {
 	private DinnerModel model;
 	private LayoutInflater inflater;
 	
-	private ListView ingredientsListView;
+	private LinearLayout ingredientsListView;
 	private View instructionsView;
 	private View currentView;
 	private int currentViewId = -1;
@@ -103,7 +104,7 @@ public class MenuView {
 		
 		// Inflate views
 		instructionsView = (View) inflater.inflate(R.layout.dish_instructions, null);
-		ingredientsListView = (ListView) inflater.inflate(R.layout.ingredients_list, null);
+		ingredientsListView = (LinearLayout) inflater.inflate(R.layout.ingredients_list, null);
 		
 		// Update info of views based on the model
 		TextView totalCost = (TextView) view.findViewById(R.id.text_menu_price);
@@ -164,8 +165,8 @@ public class MenuView {
 	private void fillIngredientsList() {		
 		ArrayList<Ingredient> ingredients = retrieveIngredients(model.getFullMenu());
 		
-		IngredientsArrayAdapter adapter = new IngredientsArrayAdapter(context, R.layout.ingredients_list, ingredients, model.getNumberOfGuests());
-		ingredientsListView.setAdapter(adapter);
+		IngredientsArrayAdapter adapter = new IngredientsArrayAdapter(context, R.id.ingredients_list_view, ingredients, model.getNumberOfGuests());
+		((ListView) ingredientsListView.findViewById(R.id.ingredients_list_view)).setAdapter(adapter);
 	}
 
 	/**
