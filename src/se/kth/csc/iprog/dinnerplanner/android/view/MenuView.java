@@ -166,7 +166,8 @@ public class MenuView {
 		ArrayList<Ingredient> ingredients = retrieveIngredients(model.getFullMenu());
 		
 		IngredientsArrayAdapter adapter = new IngredientsArrayAdapter(context, R.id.ingredients_list_view, ingredients, model.getNumberOfGuests());
-		((ListView) ingredientsListView.findViewById(R.id.ingredients_list_view)).setAdapter(adapter);
+		ListView list = ((ListView) ingredientsListView.findViewById(R.id.ingredients_list_view));
+		list.setAdapter(adapter);
 	}
 
 	/**
